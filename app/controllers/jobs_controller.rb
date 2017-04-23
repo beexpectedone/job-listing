@@ -2,6 +2,7 @@ class JobsController < ApplicationController
 
 	before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 	before_action :find_job_and_check_permission, only: [ :update, :edit, :destroy ]
+	before_action :validate_search_key, only: [:search]
 
 	def index 
 		# @jobs = Job.where(:is_hidden => false).recent
@@ -15,6 +16,13 @@ class JobsController < ApplicationController
 	   			else
 	   				Job.published.recent
 	   			end			
+	end
+
+	def search
+		if @query_string.present?
+			search_result = Job.published.ransack(@search_criteria).result(:dinstinct => true)
+			@jobs = search_result.recent.paginate(:page => params[:page], :per_page => 5 )
+		end
 	end
 
 	def new
@@ -54,10 +62,24 @@ class JobsController < ApplicationController
 		redirect_to jobs_path
 	end
 
+	protected
+	  def validate_search_key
+	    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "")
+	    if params[:q].present?
+	      @search_criteria =  {
+	        title_or_company_or_city_cont: @query_string
+	      }
+	  end
+  	end
+
+	  def search_criteria(query_string)
+	    { :title_cont => query_string }
+	  end
+
 	private
 
 	def job_params
-		params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden)
+		params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden,:category,:company,:city)
 	end	
 
 	def find_job_and_check_permission
