@@ -8,6 +8,7 @@
             <hr>
             <div class="form-inputs">
               <%= f.input :email, :label => "邮箱", required: true, autofocus: true %>
+              <%= f.input :username, :label => "用户名", required: true, autofocus: true %>
               <%= f.input :password, :label => "密码", required: true, hint: ("#{@minimum_password_length} 位数字或字母" if @minimum_password_length) %>
               <%= f.input :password_confirmation, :label => "确认密码", required: true %>
               <%= f.input :is_admin, :label => '是否为企业', :input_html => { :checked => false } %>
