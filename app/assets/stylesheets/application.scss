@@ -82,74 +82,290 @@
 
 //---------Box---------
 
+.video {
+   position: fixed;
+   
+   z-index: 1;
+   min-width: 100%;
+   min-height: 100%;
+   width: auto;
+   height: auto;
+   transform: translate(-50%, -50%);
+}
+
+.video-background {
+    qqposition: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: -100;
+}
+
 .box {
-    background-image: url("header.jpg");
+    
     background-repeat: no-repeat;
     background-size: cover;
-    margin-bottom: 50px;
+    margin-top: 200px;
 
     .box-inner {
-        background-color: rgba(250, 250, 250, 0.69);
+        background-color: 0,0,0,0;
         padding-bottom: 5px;
         margin-top: 150px;
-        margin-bottom: 150px;
+        //margin-bottom: 150px;
     }
 
     .title {
         text-align: center;
-        margin-bottom: 80px;
+        //margin-bottom: 80px;
+        color: slategray;
     }
 
     .slogan {
         color: #222;
         margin-top: 10px;
-        margin-bottom: 50px;
+        //margin-bottom: 50px;
         text-align: center;
-        font-size: 25px;
+        font-size: 18px;
         top: 12px;
+        color: slategray;
     }
 
     .lead {
-        margin-bottom: 60px;
+        margin-bottom: 15px;
         text-align: center;
-        color: white;
+        color: darkgrey;
     }
 }
 
 
 //---------Content---------
 
-.content-section-a {
-    padding: 50px 0;
-    background-color: #f8f8f8;
+.col-md-12{
+    width:100%;
+    float: none;
 }
 
-.content-section-b {
-    padding: 50px 0;
-    border-top: 1px solid #e7e7e7;
-    border-bottom: 1px solid #e7e7e7;
+.slogan {
+        color: #222;
+        margin-top: 10px;
+        //margin-bottom: 50px;
+        text-align: center;
+        font-size: 18px;
+        top: 12px;
+        color: slategray;
+    }
+
+.fl{
+    display: inline-block;
 }
 
-.section-heading-spacer {
+.section {
+    padding-top: 20px;
+    padding-bottom: 85px;
+}
+
+.our-advantage{
+    padding-top: 20px;
+    background: #F2F2F5;
+    padding-bottom: 15px;
+}
+
+.section.section-content {
+    width: 1000px;
+    padding-top: 60px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.8em;
+}
+.section-title {
+    text-align: center;
+    font-size: 34px;
+    color: #858c8b;
+    line-height: 34px;
+}
+
+.section-content .col-3 {
+    padding-top: 20px;
+}
+
+.advantage-tag{
+    width: 350px;
+    text-align: center;
+    margin-left: 12px;
+}
+
+.section-content .col-3 .item {
+    width: 33.33%;
+    position: relative;
+    margin-left: 53px;
+    top: 0;
+    text-align: center;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.section-content .col-3 .item .advantage-img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.advantage-title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333333;
+    font-weight: bold;
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.pricing-three-column {
+    margin: 20px auto;
+    margin-bottom: 0px;
+    width: 100% !important;
+}
+
+.pricing-table .plan {
+    margin-left: 0px;
+    border-radius: 5px;
+    width: 30%;
     float: left;
-    width: 200px;
-    border-top: 3px solid #e7e7e7;
+    margin-right: 16px;
+    text-align: center;
+    background-color: #f3f3f3;
+    -moz-box-shadow: 0 0 6px 2px #b0b2ab;
+    -webkit-box-shadow: 0 0 6px 2px #b0b2ab;
+    box-shadow: 0 0 6px 2px #b0b2ab;
 }
 
-.section-heading {
-    margin-bottom: 30px;
+.plan {
+    padding: 20px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    background-color: #5e5f59;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
 }
 
-.lead {
+.plan-name-bronze {
+    padding: 20px;
+    color: #fff;
+    background-color: #000000;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #777777;
+    border-radius: 10px;
+}
+
+h2, .h2 {
+    font-size: 30px;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+.pricing-table .plan ul {
+    list-style: none;
+    margin: 0;
+    -moz-border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+
+
+.pricing-three-column {
+    margin: 20px auto;
+    margin-bottom: 0px;
+    width: 80%;
+}
+
+.sidebar {
+    display: none;
+    position: fixed;
+    z-index: 998;
+    right: 30px;
+    bottom: 30px;
+    width: 40px;
+margin-right: 10px;
+    height: auto;
+    line-height: 20px;
+}
+
+.sidebar li:first-child {
+    margin-top: 0;
+}
+
+.sidebar li {
+    position: relative;
+    display: block;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 8px;
+    background: #fbfbfb;
+    line-height: 42px;
+}
+
+.sidebar li.backtop i {
     font-size: 18px;
-    font-weight: 400;
 }
 
-.img-match-parent {
-    width: 100%;
-    
-    position: absolute;
-    background: url("header.jpg")
+.sidebar li i {
+    color: #555;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 //---------Footer---------
@@ -172,7 +388,7 @@ html, body {
 }
 
 #qz-footer {
-    hheight: 200px;
+    height: 290px;
     box-sizing: border-box;
     bottom: 0;
     width: 100%;
