@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  #devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations'}
   resources :jobs do
     collection do
       get :search
@@ -20,6 +21,10 @@ Rails.application.routes.draw do
 
       resources :resumes
   	 end 	
+  end
+
+  namespace :users do
+    resources :users
   end
   
   root 'welcome#index'
