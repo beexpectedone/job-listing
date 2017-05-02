@@ -6,7 +6,7 @@ class Admin::JobsController < ApplicationController
 
 	def index
 		# @jobs = Job.where(:is_hidden => false).recent
-		@jobs = Job.all
+		@jobs = Job.where(:user => current_user)
 	end
 
 	def new
@@ -65,7 +65,7 @@ class Admin::JobsController < ApplicationController
 
 	private
 	def job_params
-		params.require(:job).permit(:title,:description,:wage_upper_bound,:wage_lower_bound,:contact_email,:is_hidden)
+		params.require(:job).permit(:title,:description,:wage_upper_bound,:wage_lower_bound,:contact_email,:is_hidden, :category, :company, :city)
 	end
 
 	def find_job
