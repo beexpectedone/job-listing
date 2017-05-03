@@ -1,5 +1,7 @@
 class Job < ApplicationRecord
 
+	#after_initialize :set_defaults, unless: :persisted?
+
 	belongs_to :user
 	has_many :resumes
 	validates :title, presence: true
@@ -26,4 +28,8 @@ class Job < ApplicationRecord
 		self.is_hidden = true
 		self.save
 	end
+
+	#def set_defaults
+	#	self.contact_email ||= 'xxx@163.com'
+	#end
 end
